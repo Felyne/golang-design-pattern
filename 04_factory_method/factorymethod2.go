@@ -5,7 +5,7 @@ var operatorFactoryMap = map[string]OperatorFactory{
 	"minus": MinusOperatorFactory{},
 }
 
-// 工厂类的工厂+单例模式
+// 工厂类的的简单工厂
 func NewOperatorFactory(ot string) OperatorFactory {
 	return operatorFactoryMap[ot]
 }

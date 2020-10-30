@@ -32,7 +32,7 @@ const (
 	English SpeakerType = "english"
 )
 
-// 简单工厂+单例模式
+// 类似简单工厂+单例模式
 func NewSpeaker(speakerType SpeakerType) Speaker {
 	switch speakerType {
 	case Chinese:

@@ -4,7 +4,7 @@ import "fmt"
 
 type IConfigParserFactory interface {
 	CreateRuleParser() IRuleConfigParser
-	CreateSystemParer() ISystemConfigParser
+	CreateSystemParser() ISystemConfigParser
 }
 
 type IRuleConfigParser interface {
@@ -23,7 +23,7 @@ func (JsonConfigParserFactory) CreateRuleParser() IRuleConfigParser {
 	return JsonRuleConfigParser{}
 }
 
-func (JsonConfigParserFactory) CreateSystemParer() ISystemConfigParser {
+func (JsonConfigParserFactory) CreateSystemParser() ISystemConfigParser {
 	return JsonSystemConfigParser{}
 }
 
@@ -49,7 +49,7 @@ func (XmlConfigParserFactory) CreateRuleParser() IRuleConfigParser {
 	return XmlRuleConfigParser{}
 }
 
-func (XmlConfigParserFactory) CreateSystemParer() ISystemConfigParser {
+func (XmlConfigParserFactory) CreateSystemParser() ISystemConfigParser {
 	return XmlSystemConfigParser{}
 }
 

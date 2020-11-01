@@ -1,15 +1,19 @@
 package strategy
 
-func ExamplePayByCash() {
-	payment := NewPayment("Ada", "", 123, &Cash{})
+import (
+	"time"
+)
+
+func ExamplePay() {
+	// 运行时动态确定策略
+	strategy := NewPaymentStrategy(getRandPaymentType())
+	payment := NewPayment("Ada", "", 123, strategy)
 	payment.Pay()
-	// Output:
-	// Pay $123 to Ada by cash
 }
 
-func ExamplePayByBank() {
-	payment := NewPayment("Bob", "0002", 888, &Bank{})
-	payment.Pay()
-	// Output:
-	// Pay $888 to Bob by bank account 0002
+func getRandPaymentType() PaymentType {
+	if time.Now().Unix()%2 == 0 {
+		return PaymentTypeCash
+	}
+	return PaymentTypeBank
 }

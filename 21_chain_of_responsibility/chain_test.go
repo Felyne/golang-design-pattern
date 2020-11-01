@@ -1,6 +1,8 @@
-package chain
+package main
 
-func ExampleChain() {
+import "testing"
+
+func TestChain(t *testing.T) {
 	c1 := NewProjectManagerChain()
 	c2 := NewDepManagerChain()
 	c3 := NewGeneralManagerChain()
@@ -19,5 +21,27 @@ func ExampleChain() {
 	// Dep manager permit tom 1400 fee request
 	// General manager permit ada 10000 fee request
 	// Project manager don't permit floar 400 fee request
+}
 
+func TestSensitiveWordFilterChain(t *testing.T) {
+	chain := NewSensitiveWordFilterChain()
+	chain.AddFilter(NewSexyWordFilter())
+	chain.AddFilter(NewAbusiveWordFilter())
+
+	if true == chain.Filter("sexy") {
+		t.Fail()
+	}
+	if true == chain.Filter("fuck") {
+		t.Fail()
+	}
+	if false == chain.Filter("good") {
+		t.Fail()
+	}
+}
+
+func TestAdvancedHandlerChain(t *testing.T) {
+	chain := NewAdvancedHandlerChain()
+	chain.AddHandler(NewHandlerC())
+	chain.AddHandler(NewHandlerD())
+	chain.Handle()
 }

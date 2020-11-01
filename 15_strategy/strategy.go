@@ -27,8 +27,32 @@ func (p *Payment) Pay() {
 	p.strategy.Pay(p.context)
 }
 
+type PaymentType string
+
+const (
+	PaymentTypeCash PaymentType = "Cash"
+	PaymentTypeBank PaymentType = "Bank"
+)
+
 type PaymentStrategy interface {
 	Pay(*PaymentContext)
+}
+
+// 不可变对象
+var (
+	cash = &Cash{}
+	bank = &Bank{}
+)
+
+func NewPaymentStrategy(t PaymentType) PaymentStrategy {
+	switch t {
+	case PaymentTypeCash:
+		return cash
+	case PaymentTypeBank:
+		return bank
+	default:
+		return cash
+	}
 }
 
 type Cash struct{}

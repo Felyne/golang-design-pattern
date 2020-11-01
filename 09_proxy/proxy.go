@@ -4,12 +4,14 @@ type Subject interface {
 	Do() string
 }
 
+// 原始类
 type RealSubject struct{}
 
 func (RealSubject) Do() string {
 	return "real"
 }
 
+// 代理类
 type Proxy struct {
 	real RealSubject
 }

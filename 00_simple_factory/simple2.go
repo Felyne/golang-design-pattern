@@ -33,6 +33,7 @@ const (
 )
 
 // 类似简单工厂+单例模式
+// 因为这里是值接收者，所以调用者拿到的不是同一个对象
 func NewSpeaker(speakerType SpeakerType) Speaker {
 	switch speakerType {
 	case Chinese:

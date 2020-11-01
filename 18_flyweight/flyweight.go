@@ -2,6 +2,8 @@ package flyweight
 
 import "fmt"
 
+// 在工厂类中通过map缓存已经创建过的享元对象，来达到复用的目的
+// 享元对象是不可变对象，在内存中保存一份实例，供多处代码引用
 type ImageFlyweightFactory struct {
 	maps map[string]*ImageFlyweight
 }

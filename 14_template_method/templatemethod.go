@@ -11,6 +11,7 @@ type template struct {
 	uri string
 }
 
+// 延迟到子类去实现的方法
 type implement interface {
 	download()
 	save()
@@ -22,6 +23,7 @@ func newTemplate(impl implement) *template {
 	}
 }
 
+// 模板方法
 func (t *template) Download(uri string) {
 	t.uri = uri
 	fmt.Print("prepare downloading\n")

@@ -1,4 +1,4 @@
-package chain
+package main
 
 import "fmt"
 
@@ -16,7 +16,9 @@ func (r *RequestChain) SetSuccessor(m *RequestChain) {
 	r.successor = m
 }
 
+// 模板方法
 func (r *RequestChain) HandleFeeRequest(name string, money int) bool {
+	// 有权处理就处理并返回，没权处理就沿链路传下去
 	if r.Manager.HaveRight(money) {
 		return r.Manager.HandleFeeRequest(name, money)
 	}

@@ -10,6 +10,7 @@ type Visitor interface {
 	Visit(Customer)
 }
 
+// 企业用户
 type EnterpriseCustomer struct {
 	name string
 }
@@ -38,6 +39,7 @@ func (c *EnterpriseCustomer) Accept(visitor Visitor) {
 	visitor.Visit(c)
 }
 
+// 个人用户
 type IndividualCustomer struct {
 	name string
 }

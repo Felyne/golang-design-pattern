@@ -23,7 +23,7 @@ func (n *NotificationService) SendInboxMessage(userId int, msg string) {
 }
 
 type UserController struct {
-	userService  *UserController
+	userService  *UserService
 	regObservers []RegObserver
 }
 

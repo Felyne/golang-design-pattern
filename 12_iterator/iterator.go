@@ -12,6 +12,7 @@ type Iterator interface {
 	Next() interface{}
 }
 
+// 容器
 type Numbers struct {
 	start, end int
 }
@@ -23,6 +24,7 @@ func NewNumbers(start, end int) *Numbers {
 	}
 }
 
+// 容器通过 Iterator() 方法来创建迭代器
 func (n *Numbers) Iterator() Iterator {
 	return &NumbersIterator{
 		numbers: n,
@@ -30,8 +32,9 @@ func (n *Numbers) Iterator() Iterator {
 	}
 }
 
+// 迭代器
 type NumbersIterator struct {
-	numbers *Numbers
+	numbers *Numbers //待遍历的容器对象通过依赖注入传递到迭代器类中
 	next    int
 }
 

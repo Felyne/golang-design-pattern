@@ -1,6 +1,8 @@
 package flyweight
 
-import "testing"
+import (
+	"testing"
+)
 
 func ExampleFlyweight() {
 	viewer := NewImageViewer("image1.png")

@@ -3,8 +3,8 @@ package flyweight
 type Color string
 
 const (
-	Red   Color = "red"
-	Black Color = "black"
+	ColorRed   Color = "red"
+	ColorBlack Color = "black"
 )
 
 type ChessPieceUnit struct {
@@ -40,8 +40,8 @@ func newChessPieceUnitFactory() *ChessPieceUnitFactory {
 }
 
 func (c *ChessPieceUnitFactory) init() {
-	c.pieces[1] = NewChessPieceUnit(1, "车", Red)
-	c.pieces[2] = NewChessPieceUnit(2, "马", Red)
+	c.pieces[1] = NewChessPieceUnit(1, "车", ColorRed)
+	c.pieces[2] = NewChessPieceUnit(2, "马", ColorBlack)
 	//...
 }
 

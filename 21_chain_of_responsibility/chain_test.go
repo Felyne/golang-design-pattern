@@ -27,10 +27,10 @@ func TestSensitiveWordFilterChain(t *testing.T) {
 	chain := NewSensitiveWordFilterChain()
 	chain.AddFilter(NewSexyWordFilter())
 	chain.AddFilter(NewAbusiveWordFilter())
-	if true == chain.Filter("sexy") {
+	if chain.Filter("sexy") {
 		t.Fail()
 	}
-	if true == chain.Filter("fuck") {
+	if chain.Filter("fuck") {
 		t.Fail()
 	}
 	if false == chain.Filter("good") {
